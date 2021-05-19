@@ -1,9 +1,14 @@
 import { makeAutoObservable } from "mobx";
+import { RootStore } from './Root.store';
+
+export interface IAuthStore {
+  rootStore: RootStore
+}
 
 class UserStore {
-  rootStore = null;
+  rootStore: RootStore = null;
 
-  constructor(rootStore) {
+  constructor(rootStore: RootStore) {
     makeAutoObservable(this, { rootStore: false })
     this.rootStore = rootStore
   }
