@@ -6,6 +6,8 @@ import { useRootStore } from '@hooks/useRootStore'
 
 const App = () => {
   const store: RootStore = useRootStore()
+  console.log("~ store ~", store);
+  console.log("~ process ~", process.env.NODE_ENV);
   return (
     <h1>React and TypeScript</h1>
   ) 
