@@ -29,7 +29,12 @@ const config = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    alias      : {
+      '@stores': path.resolve(__dirname, '../src/stores'),
+      "@services": path.resolve(__dirname, '../src/services'),
+      "@hooks": path.resolve(__dirname, '../src/hooks'),
+    },
+    extensions : [".tsx", ".ts", ".js"],
   },
   plugins: [
     new HtmlWebpackPlugin({
