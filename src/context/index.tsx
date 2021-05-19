@@ -3,7 +3,7 @@ import { RootStore } from '../store/Root.store';
 
 let store: RootStore
 
-// create the context
+// Global application context
 const StoreContext = createContext<RootStore | undefined>(undefined);
 
 // create the provider component
