@@ -1,5 +1,5 @@
 import { axios } from './config'
-import { TestApi } from './getways'
+import { TestApi } from './gateways'
 
 class Api {
   testApi: TestApi
