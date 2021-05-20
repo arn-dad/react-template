@@ -3,9 +3,13 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
+import Dotenv from 'dotenv-webpack';
+import { src, root } from './utilities/paths';
+
+const mode = "development"
 
 const config = {
-  mode: "development",
+  mode,
   output: {
     publicPath: "/",
   },
@@ -30,9 +34,9 @@ const config = {
   },
   resolve: {
     alias      : {
-      '@stores': path.resolve(__dirname, '../src/stores'),
-      "@services": path.resolve(__dirname, '../src/services'),
-      "@hooks": path.resolve(__dirname, '../src/hooks'),
+      '@stores': `${src}/stores`,
+      "@services": `${src}/services`,
+      "@hooks": `${src}/hooks`,
     },
     extensions : [".tsx", ".ts", ".js"],
   },
@@ -47,6 +51,11 @@ const config = {
     new ESLintPlugin({
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
+    new Dotenv({
+      path: `${root}/env/.env.${mode}`,
+      safe: `${root}/env/.env.example`,
+      silent: false
+    })
   ],
   devtool: "inline-source-map",
   devServer: {

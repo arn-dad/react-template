@@ -4,9 +4,13 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ESLintPlugin from "eslint-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import Dotenv from 'dotenv-webpack';
+import { src, root } from './utilities/paths';
+
+const mode = "production"
 
 const config: webpack.Configuration = {
-  mode: "production",
+  mode,
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "../build"),
@@ -33,6 +37,11 @@ const config: webpack.Configuration = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+    alias      : {
+      '@stores': `${src}/stores`,
+      "@services": `${src}/services`,
+      "@hooks": `${src}/hooks`,
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -45,6 +54,11 @@ const config: webpack.Configuration = {
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
     new CleanWebpackPlugin(),
+    new Dotenv({
+      path: `${root}/env/.env.${mode}`,
+      safe: `${root}/env/.env.example`,
+      silent: false
+    })
   ],
 };
 
