@@ -1,15 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { RootStoreProvider } from './context'
-import { RootStore } from './stores/Root.store';
-import { useRootStore } from '@hooks/useRootStore'
-
-const App = () => {
-  const store: RootStore = useRootStore()
-  return (
-    <h1>React and TypeScript</h1>
-  ) 
-};
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
