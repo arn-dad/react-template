@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "module": "esnext",
     "target": "es6",
     "lib": [
       "dom",
@@ -26,6 +27,7 @@
           "@stores/*": ["stores/*"],
           "@services/*": ["services/*"],
           "@hooks/*": ["hooks/*"],
+          "@modules/*": ["modules/*"],
         },
   },
   "include": [

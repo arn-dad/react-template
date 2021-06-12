@@ -1,11 +1,11 @@
 import { makeAutoObservable } from "mobx";
 import { RootStore } from './Root.store';
 
-export interface IAuthStore {
-  rootStore: RootStore
+export interface IUserStore {
+  rootStore: RootStore,
 }
 
-class UserStore {
+class UserStore implements IUserStore {
   rootStore: RootStore = null;
 
   constructor(rootStore: RootStore) {
@@ -13,8 +13,8 @@ class UserStore {
     this.rootStore = rootStore
   }
 
-  get user(): null {
-      return null
+  get status(): string {
+      return 'App Ready to use'
   }
 }
 

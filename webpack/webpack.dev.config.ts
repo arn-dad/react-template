@@ -34,9 +34,10 @@ const config = {
   },
   resolve: {
     alias      : {
-      '@stores': `${src}/stores`,
+      "@stores": `${src}/stores`,
       "@services": `${src}/services`,
       "@hooks": `${src}/hooks`,
+      "@modules": `${src}/modules`,
     },
     extensions : [".tsx", ".ts", ".js"],
   },

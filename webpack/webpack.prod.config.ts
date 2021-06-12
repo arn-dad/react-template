@@ -41,6 +41,7 @@ const config: webpack.Configuration = {
       '@stores': `${src}/stores`,
       "@services": `${src}/services`,
       "@hooks": `${src}/hooks`,
+      "@modules": `${src}/modules`,
     },
   },
   plugins: [
