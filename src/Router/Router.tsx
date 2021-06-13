@@ -1,16 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { config } from './router_config'
 import PrivateRoute from './components/PrivateRoute';
 import NoMatch from './components/NoMatch';
+import { route } from 'config/router';
 
-const Router: React.FC = () => {
+export type routerProps = {
+  routes: Array<route>;
+  auth: boolean
+}
+
+const Router: React.FC<routerProps> = ({ routes, auth }) => {
   return (
     <BrowserRouter>
       <Switch>
-        {config.map(({ id, isPrivate, exact, path, component: C }) => {
+        {routes.map(({ id, isPrivate, exact, path, component: C }) => {
           return isPrivate
-            ? (<PrivateRoute key={id} exact={exact} path={path} component={C} />)
+            ? (<PrivateRoute key={id} exact={exact} path={path} isAuth={auth} component={C} />)
             : (<Route key={id} exact path={path} render={(props) => <C {...props} />} />)
         })}
         <Route path="*"><NoMatch /></Route>
