@@ -9,9 +9,9 @@ const Router: React.FC = () => {
     <BrowserRouter>
       <Switch>
         {config.map(({ id, isPrivate, exact, path, component: C }) => {
-          return isPrivate 
+          return isPrivate
             ? (<PrivateRoute key={id} exact={exact} path={path} component={C} />)
-            : (<Route key={id} exact path={path} render={(props) => <C {...props}/>}/>)
+            : (<Route key={id} exact path={path} render={(props) => <C {...props} />} />)
         })}
         <Route path="*"><NoMatch /></Route>
       </Switch>

@@ -6,7 +6,7 @@ const App: FC = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <Router />
     </Suspense>
-  ) 
+  )
 };
 
 export default App;
