@@ -4,7 +4,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 import Dotenv from 'dotenv-webpack';
-import { src, root } from './utilities/paths';
+import { root } from './utilities/paths';
+import { alias } from './utilities/alias';
 
 const mode = "development"
 
@@ -33,12 +34,7 @@ const config = {
     ],
   },
   resolve: {
-    alias      : {
-      "@stores": `${src}/stores`,
-      "@services": `${src}/services`,
-      "@hooks": `${src}/hooks`,
-      "@modules": `${src}/modules`,
-    },
+    alias,
     extensions : [".tsx", ".ts", ".js"],
   },
   plugins: [
